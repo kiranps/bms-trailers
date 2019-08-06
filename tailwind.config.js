@@ -8,6 +8,12 @@ module.exports = {
           "200": "#2b2b2b",
           "900": "#000000"
         }
+      },
+      width: {
+        "px-180": "180px"
+      },
+      height: {
+        "px-234": "234px"
       }
     },
     inset: {

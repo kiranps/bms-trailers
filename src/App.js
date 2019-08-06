@@ -8,24 +8,35 @@ import Poster from "/components/Poster";
 const App = () => {
   const [languages, setLanguages] = useState([]);
   const [movies, setMovies] = useState([]);
+  const [genre, setGenre] = useState([]);
 
   React.useEffect(() => {
     fetch("trailers.json")
       .then(response => response.json())
       .then(data => {
         console.log(data);
+        const movies = R.toPairs(data[1]);
+        const genre = R.uniq(
+          R.flatten(
+            movies.map(x =>
+              x[1].EventGenre.split("|").map(x => x.toLowerCase())
+            )
+          )
+        );
+        setGenre(genre);
         setLanguages(data[0]);
-        console.log(R.toPairs(data[1])[1]);
-        setMovies(R.toPairs(data[1]));
+        setMovies(movies);
       });
   }, []);
-
-  console.log(movies);
 
   return (
     <React.Fragment>
       <AppBar>
-        <Select options={languages} />
+        <AppBar.Left />
+        <AppBar.Right>
+          <Select options={genre} />
+          <Select options={languages} />
+        </AppBar.Right>
       </AppBar>
       <Content>
         {movies.map((x, i) => (
