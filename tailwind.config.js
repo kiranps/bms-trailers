@@ -6,7 +6,8 @@ module.exports = {
         black: {
           "100": "#1a1a1a",
           "200": "#2b2b2b",
-          "900": "#000000"
+          "900": "#000000",
+          blur: "#00000038"
         }
       },
       width: {
@@ -23,7 +24,8 @@ module.exports = {
         "px-480": "480px"
       },
       spacing: {
-        sm: "12px"
+        sm: "12px",
+        "px-114": "118px"
       }
     },
     inset: {
