@@ -23,7 +23,7 @@ const Select = ({ placeholder, options, onChange }) => {
       onMouseOut={_ => setOpen(false)}
     >
       <div>
-        <div className="border border-teal-500 rounded-sm text-xs w-32 py-1">
+        <div className="border border-teal-500 rounded-sm text-xs w-32 py-1 cursor-pointer">
           <div className="inline-block text-teal-500 overflow-none w-3/4 overflow-hidden px-2 align-middle">
             {R.isEmpty(selectedValues) ? placeholder : selectedValues.join(",")}
           </div>
