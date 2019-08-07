@@ -6,7 +6,9 @@ const VideoPlayer = ({ data }) => {
     <div className="w-full h-px-480 py-4">
       <iframe
         className="w-3/5 mx-auto px-4 inline-block align-top h-full"
-        src={`https://www.youtube.com/embed/${data.TrailerURL.split("v=")[1]}`}
+        src={`https://www.youtube.com/embed/${
+          data.TrailerURL.split("v=")[1].split("&")[0]
+        }`}
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

@@ -28,7 +28,8 @@ module.exports = {
     },
     inset: {
       "0": 0,
-      "12": "3rem"
+      "12": "3rem",
+      "24": "6rem"
     }
   },
   variants: {

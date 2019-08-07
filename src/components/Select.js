@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as R from "ramda";
 
-const Select = ({ options }) => {
+const Select = ({ placeholder, options, onChange }) => {
   const [isOpen, setOpen] = useState(false);
   const [selectedValues, setValues] = useState([]);
 
@@ -17,7 +17,7 @@ const Select = ({ options }) => {
       : R.append(item, selectedValues);
 
     setValues(newValues);
-    console.log(newValues);
+    onChange(newValues);
   };
 
   return (
@@ -28,7 +28,7 @@ const Select = ({ options }) => {
           onClick={toggleSelect}
         >
           <div className="inline-block text-teal-500 overflow-none w-3/4">
-            {R.isEmpty(selectedValues) ? "select" : selectedValues.join(",")}
+            {R.isEmpty(selectedValues) ? placeholder : selectedValues.join(",")}
           </div>
           <div className="inline-block w-1/4">
             <svg
@@ -61,6 +61,10 @@ const Select = ({ options }) => {
       </div>
     </div>
   );
+};
+
+Select.defaultProps = {
+  placeholder: "select"
 };
 
 export default Select;
