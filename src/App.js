@@ -11,7 +11,7 @@ const App = () => {
   const [languages, setLanguages] = useState([]);
   const [movies, setMovies] = useState([]);
   const [genre, setGenre] = useState([]);
-  const [selectedRow, setRow] = useState(null);
+  const [selectedTrailer, setTrailer] = useState(-1);
   const width = useWidth();
 
   React.useEffect(() => {
@@ -34,13 +34,11 @@ const App = () => {
   }, []);
 
   let handleSelectMovie = i => {
-    const columns = Math.floor(width / 180);
-    const row = Math.floor(i / columns);
-    console.log(row);
-    setRow(row);
+    setTrailer(i);
   };
 
-  const columns = Math.floor(width / 180);
+  const columns = Math.floor(width / 192);
+  const selectedRow = Math.floor(selectedTrailer / columns);
 
   return (
     <React.Fragment>
@@ -55,7 +53,7 @@ const App = () => {
         {movies.map((x, i) =>
           i / columns === selectedRow ? (
             <React.Fragment key={i}>
-              <VideoPlayer />
+              <VideoPlayer data={movies[selectedTrailer][1]} />
               <Poster data={x[1]} onClick={_ => handleSelectMovie(i)} />
             </React.Fragment>
           ) : (
