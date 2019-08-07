@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as R from "ramda";
+import R from "ramda";
 import Select from "/components/Select";
 import AppBar from "/components/AppBar";
 import Poster from "/components/Poster/";

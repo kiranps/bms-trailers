@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CheckBox from "/components/CheckBox";
-import * as R from "ramda";
+import R from "ramda";
 
 const Select = ({ placeholder, options, onChange }) => {
   const [isOpen, setOpen] = useState(false);
